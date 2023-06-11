@@ -1,0 +1,30 @@
+'ggplot()'  # Base layer of plot
+         'ggplot( data = <DATA>)'  # <DATA> is the dataset you are working with.
+     
+ '<GEOM_FUNCTION'  # Adds layer of points to a plot.
+         'geom_point()'      # creates a SCATTER plot
+         'geom_line()'       # creates a LINE plot
+         'geom_bar()'        # creates a bar plot
+         'geom_histogram()'  # creates a histogram
+         'geom_boxplot()'    # creates a boxplot
+         'geom_smooth()'     # creates a smooth line, with a confidence interval
+         'geom_col()'        # creates a bar plot, where the height oof the bar is the value of the variable
+         'geom_tile()'       # creates a heatmap
+         'geom_text()'       # adds text directly to the plot
+         'geom_jitter()'     # adds a small amount of random variation
+      
+'mapping='         # Adds aethetic mappings to the plot.
+          'aes()'  # Define aesthetic mappings.
+                'aes(x = <X_VARIABLE>, y = <Y_VARIABLE>, color = <COLOR_VARIABLE>)' 
+                
+'facet_wrap()'  # Wraps a 1D of panels into 2D.
+    'facet_wrap(~ <FACET_VARIABLE>, nrow = <NUMBER_OF_ROWS>)'
+        '~ <FACET_VARIABLE>'    # the variable in your data to facet by.
+        'nrows'                 # number of rows. If you want 2 rows, for example, this would be specified as: 'nrows = 2'
+
+'facet_grid()'    # Allows you to create plots that can be divided along rows and columns based on the levels of one or two factors.
+   ' facet_grid(<ROWS> ~ <COLUMNS>)'
+          '<ROWS>'    # the variable in your data to divide the grid along rows.
+          '<COLUMNS'  # the variable in your data to divide the grid along columns. 
+                          # Use a period (.) if you don't want to divide by rows or columns.
+                          
