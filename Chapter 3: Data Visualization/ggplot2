@@ -60,5 +60,8 @@ size = class:     # Varying sizes of points, according to the 'class; variable
 alpha = class:    # Controls transparency of the points
 
 shape = class:    # Controls the shape of the points. NOTE: 'ggplot2' only provides 6 shapes. If you have more than 6 variables, they will not have a shape.
+                  
+                  
+                  
 
 
