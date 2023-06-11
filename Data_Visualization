@@ -1,0 +1,64 @@
+# This document revolves around the use of 'ggplot2' from the tidyverse package. Thus, first ensure 'tidyverse' is installed:
+
+install.packages("tidyverse")   # You only need to install tidyverse once
+library(tidyverse)              # But you need to reload it with every new session
+
+# Graphing Template:
+
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+  
+# EXPLANATION OF THE GRAPHING TEMPLATE
+
+ggplot(data = <DATA>):  # This is where you create the base layer of your plot using the ggplot() function. 
+                        # Here, <DATA> should be replaced by the data frame that you want to visualize. 
+                        # This sets the default data frame for the entire plot.
+
++:  # This is how you add layers or components to your base plot in ggplot2. 
+    # In the grammar of graphics, you can think of a plot as a series of layers stacked on top of each other, where each layer adds additional details or refines the previous layers.
+    
+<GEOM_FUNCTION>: # Where you specify a geom function that defines the type of plot that you want to draw. 
+                 # For example, if you want to create a scatter plot, you would use 'geom_point()'
+                 
+# <MAPPINGS> component
+
+mapping = aes(<MAPPINGS>)   # Where you define the aesthetic mappings for the plot. 
+                            # Here, <MAPPINGS> should be replaced with your mappings, which might involve specifying which variable from your data frame goes on the x-axis and which one goes on the y-axis, among other things.
+                            
+# EXAMPLE:
+
+ggplot(data = mtcars) +                            # 'mtcars' is the data set the graph is based upon.
+  geom_point(mapping = aes(x = mpg, y = disp))     # 'geom_point' specifies a 'point' (or scatter) graph.
+                                                   # 'x= mpg' places the 'mpg' variable on the x-axis
+                                                   # 'y= disp' places the 'disp' variable on the y-axis.
+
+# aes() Function:
+
+aes(): # Used to specify the aesthetics of the graph. Consider the following part:
+
+aes(x = mpg, y = disp): # The x and y locations of a point are themselves aesthetics.
+
+# CUSTOMIZATION:
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))    # 'color=class' within the aes() function specifies the color of points in the graph, varying according to the 'class' variable.
+  
+# Different aesthetics can take the place of 'color=class'. For instance, 'size=class' will have varying sizes of points, according to class. NOTE: 'class' is just an example and can be any variable.
+
+# In contrast, you can make ALL points a certain consistent color. For instance, when we want the color of ALL points on the graph to be 'blue':
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = 'blue')   # NOTE: the 'color = blue' is outside of the aes() function. 
+  
+  # For 'color' thus far, we may conclude that if 'color=class' is INSIDE the aes() function, the color varies according to a specified variable.
+                                             # if 'color=class' is OUTSIDE the aes() function, the specified color will be consistent across all points.
+
+# Different aethetics that may take the place of 'color=class':
+
+size = class:     # Varying sizes of points, according to the 'class; variable
+
+alpha = class:    # Controls transparency of the points
+
+shape = class:    # Controls the shape of the points. NOTE: 'ggplot2' only provides 6 shapes. If you have more than 6 variables, they will not have a shape.
+
+
