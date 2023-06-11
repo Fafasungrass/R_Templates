@@ -1,0 +1,41 @@
+# Another way, particularly useful for categorical variables, is to split your plot into facets, subplots that each display one subset of the data.
+
+ggplot(data = mpg) +                                    
+  geom_point(mapping = aes(x = displ, y = hwy)) +       
+  facet_wrap(~ class, nrow = 2)                         
+  
+# 'mpg' is the specified dataset. This is just an example.
+# 'geom_point()' specifies that this is a scatter (or point) graph.
+# 'aes()' manipulates the aesthetic of the graph:
+    # the 'displ' variable in on the x-axis.
+    # the 'hwy' variable is on the y-axis.
+
+# 'facet_wrap()' is used to create a series of plots based on a factor variable.
+    # '~ class' tells the function to create a SEPARATE plot for EACH LEVEL of the 'class' variable in the 'mpg' dataset. Again, this is just an example in the "example" dataset used.
+    # 'nrow = 2' specifies that the facets should be arranged into 2 rows.
+    
+# TO FACET YOUR PLOT ON THE COMBINATION OF TWO VARIABLES:
+
+      # add 'facet_grid()' to your plot call. 
+          # First argument is a formula. The formula should contain two variable names separated by a '~'
+          
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)                                 # 'facet_grid()' contain two variables, 'drv' and 'cyl' in its first argument (formula). 
+  
+# If you prefer to not facet in the rows or columns dimension, 
+# use a '.' instead of a variable name, e.g. + facet_grid(. ~ cyl).
+
+# DON'T UNDERSTAND 'facet_grid()' YET? READ BELOW!
+
+# The 'facet_grid()' function allows you to create plots that can be divided along rows and columns based on the levels of one or two factors.
+
+# GENERAL TEMPLATE:
+
+facet_grid( rows ~ columns)
+
+# 'rows': This is the variable in your dataset that you want to use to divide the grid along rows. If you don't want to divide the grid along rows, you can put a period (.) here.
+
+# 'columns': This is the variable in your dataset that you want to use to divide the grid along columns. If you don't want to divide the grid along columns, you can put a period (.) here.
+
+# '~': This symbol separates the variables used for rows and columns.
